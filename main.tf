@@ -84,13 +84,3 @@ resource "openstack_compute_floatingip_associate_v2" "fip_1" {
   depends_on = [openstack_networking_router_interface_v2.router_interface]
 }
 
-# Output the instance IP
-output "instance_ip" {
-  value = openstack_networking_floatingip_v2.fip_1.address
-}
-
-# Output the private key
-output "private_key" {
-  value     = tls_private_key.ssh_key.private_key_pem
-  sensitive = true
-}
