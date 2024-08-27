@@ -7,3 +7,4 @@ rc.sh
 terraform.tfvars
 var.tfvars
 providers.tf
+orbit.pem
