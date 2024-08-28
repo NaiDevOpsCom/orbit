@@ -16,7 +16,7 @@ Here's what it creates:
 
 ## Repository Structure
 
-- **frontend**: Has the frontend react application
+- **frontend**: Has the react application
 - **/.github/workflows**: Contains scripts for CI/CD integration and other automation tasks.
 - **/Docs**: Folder contains a solutions architect document with more detailed documentation on ServerCore and openstack.
 - **main.tf**: Main file for infrastructure provisioning- **provisioners.tf**: provisioning.
@@ -33,12 +33,12 @@ You'll need a few things set up on your computer:
 
 ### 1. Get your OpenStack credentials
 
-First, we need to get your OpenStack credentials. These are like a special key that lets Terraform talk to your OpenStack account.
+First, we need to get your OpenStack credentials. These are like a special key that lets Terraform talk to your SrrverCore account.
 
 To get your credentials from ServerCore:
 
 1. Log in to your ServerCore dashboard.
-2. Look for a section called "API Access" or "OpenStack RC File".
+2. Look for a section called "Access".
 3. Download the RC file (it should be named something like `project-openrc.sh`).
 4. Open the file with a text editor.
 5. Look for lines that start with `export OS_`. These are your OpenStack environment variables.
