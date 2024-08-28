@@ -1,3 +1,3 @@
 # orbit
 
-provisioning resources to servercore with openstack
+provisioning resources on servercore with openstack

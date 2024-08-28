@@ -119,6 +119,15 @@ resource "openstack_fw_rule_v2" "allow_http" {
   enabled          = "true"
 }
 
+# resource "openstack_fw_rule_v2" "allow_react" {
+#   name             = "allow-react"
+#   description      = "Allow react traffic"
+#   action           = "allow"
+#   protocol         = "tcp"
+#   destination_port = "3000"
+#   enabled          = "true"
+# }
+
 # Create a firewall policy that includes both SSH and HTTP rules
 resource "openstack_fw_policy_v2" "firewall_policy" {
   name = "allow_ssh_http_policy"
@@ -126,6 +135,7 @@ resource "openstack_fw_policy_v2" "firewall_policy" {
   rules = [
     openstack_fw_rule_v2.allow_ssh.id,
     openstack_fw_rule_v2.allow_http.id
+    # openstack_fw_rule_v2.allow_react.id
   ]
 }
 
