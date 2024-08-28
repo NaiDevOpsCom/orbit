@@ -8,3 +8,4 @@ terraform.tfvars
 var.tfvars
 providers.tf
 orbit.pem
+frontend/node_modules

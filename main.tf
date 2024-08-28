@@ -60,11 +60,16 @@ resource "openstack_networking_floatingip_v2" "fip_1" {
   pool = data.openstack_networking_network_v2.public_network.name
 }
 
+data "template_file" "user_data" {
+  template = file("${path.module}/do_stuff.sh")
+}
+
 # Create a compute instance
 resource "openstack_compute_instance_v2" "basic" {
   name      = "basic"
   flavor_id = "3"
   key_pair  = openstack_compute_keypair_v2.default.name
+  user_data = data.template_file.user_data.rendered
   #security_groups = [openstack_networking_secgroup_v2.secgroup_ssh.name]
 
 
@@ -140,7 +145,7 @@ resource "openstack_fw_group_v2" "group_1" {
 }
 
 
-# -----------------------------------------------------------------------------------------------------------------------
+# -----------------------------------------still npt available in servercore API---------------------------------------------------------------------
 #  Create a security group for the compute instance
 # resource "openstack_networking_secgroup_v2" "secgroup_ssh" {
 #   name = "ssh_secgroup"
@@ -157,3 +162,4 @@ resource "openstack_fw_group_v2" "group_1" {
 #   security_group_id = openstack_networking_secgroup_v2.secgroup_ssh.id
 # }
 
+# ----------------------------------------------------------------------------------------------------------------------------------------------------
